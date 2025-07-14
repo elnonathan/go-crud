@@ -68,26 +68,3 @@ func TestListPerson(testing *testing.T) {
 	assert.NoError(testing, err)
 	assert.Equal(testing, len(response), 2)
 }
-
-/*
-func TestCreatePerson(testing *testing.T) {
-	database, err := testdb.OpenTestDatabase()
-	require.NoError(testing, err)
-
-	tested := person.Person{
-		Name:  "Person C1",
-		Email: "c1@person_testing.io",
-	}
-
-	require.NoError(testing, database.Create(&tested).Error)
-	require.NotNil(testing, tested.Id)
-
-	router := testrouter.SetupTestRouter(database)
-	request, _ := http.NewRequest("GET", fmt.Sprintf("/person/%d", *tested.Id), nil)
-	recorder := httptest.NewRecorder()
-	router.ServeHTTP(recorder, request)
-
-	assert.Equal(testing, http.StatusOK, recorder.Code)
-	assert.Contains(testing, recorder.Body.String(), "Jonathan")
-}
-*/
